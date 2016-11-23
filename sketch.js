@@ -3,8 +3,8 @@
 var dots;
 
 var p=.0008;
-var numberOfRows=40;
-var numberOfCollumns=40;
+var numberOfRows=30;
+var numberOfCollumns=30;
 
 function setup() {
   colorMode(HSB, windowWidth, 100, 100);
@@ -39,11 +39,12 @@ function draw() {
     //format: fill(hue, saturation, brightness);
     //the code: fill(distance from center, max saturation, max brightness);
     fill(sqrt(pow(windowWidth/2-dots[i].getXvalue(), 2)+pow(windowHeight/2-dots[i].getYvalue(), 2)),100,100);
+    //fill(255, 0, 100, 100);
     
     //Ok, I'm going to be honest with you, this was one of the first programs
     //I made, and I coded it poorly and as a result.  I could fix most of it, but
     //I have no idea how this part actually works.
-    ellipse(constrain(dots[i].getXvalue()+(constrain(mouseX, 100, windowWidth-100)-dots[i].getXvalue())*sqrt(pow(constrain(mouseX, 300, 900)-dots[i].getXvalue(), 2)+pow(mouseY-dots[i].getYvalue(), 2))*p, dots[i].getXvalue()-200, dots[i].getXvalue()+200), dots[i].getYvalue()+(mouseY-dots[i].getYvalue())*sqrt(pow(mouseX-dots[i].getXvalue(), 2)+pow(mouseY-dots[i].getYvalue(), 2))*p, 5, 5);
+    ellipse(constrain(dots[i].getXvalue()+(constrain(mouseX, 100, windowWidth-100)-dots[i].getXvalue())*sqrt(pow(constrain(mouseX, 300, 900)-dots[i].getXvalue(), 2)+pow(mouseY-dots[i].getYvalue(), 2))*p, dots[i].getXvalue()-200, dots[i].getXvalue()+200), dots[i].getYvalue()+(mouseY-dots[i].getYvalue())*sqrt(pow(mouseX-dots[i].getXvalue(), 2)+pow(mouseY-dots[i].getYvalue(), 2))*p, 2, 2);
     
     dots[i].update();
     //Move the dots across the page
